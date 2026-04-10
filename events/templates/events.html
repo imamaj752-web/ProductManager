@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Events</title>
+</head>
+<body>
+  <h1>Events: </h1>
+
+  {% for event in events %}
+    <b> Name: {{ event.title | capitalize }}</b>
+    <p> Time: {{ event.time }}</p>
+    <p> Peoples: {{ event.participants | join(', ') }}</p>
+
+    {% if event.time < '12:00' %}
+      <i> * Morning meet </i>
+    {% endif %}
+
+    <!--Вертикальна лінія-->
+    <hr>
+  {% endfor %}
+
+</body>
+</html>

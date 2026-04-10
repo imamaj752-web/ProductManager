@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Менеджер товарів</title>
+</head>
+<body>
+
+    <h1>Менеджер товарів</h1>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <p style="color: red;">{{ message }}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+        <input type="text" name="name" placeholder="Назва товару" required>
+        <input type="number" name="price" placeholder="Ціна" required>
+        <input type="text" name="category" placeholder="Категорія" required>
+        <button type="submit">Додати</button>
+    </form>
+
+    <hr>
+
+    <table border="1">
+        <tr>
+            <th>Назва</th>
+            <th>Ціна</th>
+            <th>Категорія</th>
+            <th>Дія</th>
+        </tr>
+        {% for name, info in products.items() %}
+        <tr>
+            <td>{{ name }}</td>
+            <td>{{ info.price }}</td>
+            <td>{{ info.category }}</td>
+            <td>
+                <button>Видалити</button>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+<h1>Твій букет тюльпанів</h1>
+<p>Ціна за 1 тюльпан - 60 грн</p>
+<form method="POST">
+    <label>Кількість тюльпанів:</label>
+    <input type="number" name="count" required>
+    <button>Відправити</button>
+</form>
+{% if cost %}
+    <p>Ваш букет коштує: {{ cost }} грн</p>
+    <div>{{ pyramid | safe }}</div>
+{% endif %}

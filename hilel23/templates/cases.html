@@ -1,0 +1,23 @@
+<!-- templates/cases.html -->
+<!DOCTYPE html>
+<html>
+<head><title>Кейси</title></head>
+<body>
+    <h2>Баланс: {{ balance }} BP</h2>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}<p>{{ msg }}</p>{% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <div>
+        {% for case_type in ['common', 'rare', 'legendary'] %}
+            <a href="/open/{{ case_type }}">
+                <img src="{{ case_image[case_type] }}" alt="{{ case_type }}" width="150">
+                <br>{{ case_type|title }} Case ({{ price[case_type] }} BP)
+            </a>
+        {% endfor %}
+    </div>
+</body>
+</html>
