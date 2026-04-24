@@ -6,7 +6,7 @@ from action_db import *
 from action_db import delete_product_by_name
 
 app = Flask(__name__)
-app.secret_key = '123'ёёёёёёёёё
+app.secret_key = '123'
 init_db()
 
 
