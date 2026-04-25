@@ -47,6 +47,7 @@ Product Manager
 
     <h4 class="mb-3">Products:</h4>
 
+    <!--table-bordered border-dark-->
     <table class="table table-hover">
         <thead class="table-dark">
             <tr>
@@ -64,10 +65,10 @@ Product Manager
               <td>{{ item['category'] }}</td>
               <td>
 
-                <form action="/delete_product" method="POST">
-                    <input type="hidden" name="name" value="{{ item.name }}">
-                    <button type="submit">Видалити</button>
-                </form>
+                <!-- loop.index - повертає порядковий номер ітерації (повторення) -->
+                <a href="{{ url_for('delete', name=item['name']) }}">
+                  <button type="submit" class="btn btn-danger ">Видалити</button>
+                </a>
 
               </td>
             </tr>
