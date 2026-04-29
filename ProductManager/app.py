@@ -1,4 +1,4 @@
-ёёfrom flask import Flask
+from flask import Flask
 from models import init_db
 
 # імпортація BLUEPRINT
