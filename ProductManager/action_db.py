@@ -20,7 +20,7 @@ def get_product_by_category(category, company_id: int):
     return Product.select().where((Product.category == category) & (Product.company == company_id))
 
 def get_all_categories(company_id: int):
-    return Product.select().where(Product.company == company_id).distinct().order_by(Product.category)
+    return Product.select(Product.category).where(Product.company == company_id).distinct().order_by(Product.category)
 
 def product_exist(name, company_id: int) -> bool:
     return Product.select().where((Product.name == name) & (Product.company == company_id)).exists()

@@ -40,6 +40,16 @@ Product Manager
         </select>
       </div>
 
+       <div class="col-md-2">
+        <select name="sort" class="form-select">
+          <option value="all">All</option>
+          <option value="name_asc" {% if choice_sort=="name_asc" %} selected {% endif %} >name asc</option>
+          <option value="name_desc" {% if choice_sort=="name_desc" %} selected {% endif %} >name desc</option>
+          <option value="price_asc" {% if choice_sort=="price_asc" %} selected {% endif %} >price asc</option>
+          <option value="price_desc" {% if choice_sort=="price_desc" %} selected {% endif %} >price desc</option>
+        </select>
+      </div>
+
       <div class="col-md-2">
           <button type="submit" class="btn btn-dark w-100">Застосувати</button>
       </div>
@@ -66,7 +76,7 @@ Product Manager
               <td>
 
                 <!-- loop.index - повертає порядковий номер ітерації (повторення) -->
-                <a href="{{ url_for('delete', name=item['name']) }}">
+                <a href="{{ url_for('product.delete', name=item['name']) }}">
                   <button type="submit" class="btn btn-danger ">Видалити</button>
                 </a>
 
